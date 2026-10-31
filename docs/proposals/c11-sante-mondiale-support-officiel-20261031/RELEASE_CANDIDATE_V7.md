@@ -1,0 +1,30 @@
+# UE C1.1 — Préparation de l'intégration V7 (non publiable)
+
+Date : 31 octobre 2026. Ce document de suivi ne contient **aucune donnée du cours, transcription, lien Drive privé ou PDF**.
+
+## Livrables privés vérifiés
+- Fiche hybride V7 : **20 pages**, SHA-256 `58456ae15679ca9994172ce1c1d6495aedc94a66948cfc469d370091fec51d25`.
+- QCM corrigés V4 : **56 questions sur 21 pages**, SHA-256 `4153a3b554fb7dc676fb745c26f8ab7c302493c51616b743b1af46a2ca6cac8e`.
+- Flashcards historiques : **56**, non modifiées.
+- Vocaux historiques déclarés : **2**, non modifiés.
+- PDF précédent V6 et archives préservés.
+
+## Différences à garder synchronisées
+- Q30 : formulation grammaticale clarifiée, réponses inchangées.
+- Q50 : l'objet de la question (« incidence ») est explicité, réponses inchangées.
+- Ni les 56 réponses, ni les 56 cartes ne changent.
+- Le document V7 contient quatre vues graphiques supplémentaires issues des diapositives du cours 53, 90, 95 et 98. Le modèle de référence Pharmacologie a été consulté.
+
+## Contrôles restant bloquants
+1. Transcription authentifiée Santé mondiale **introuvable** : le cours est à qualifier « support officiel + oral non disponible », sans prétendre à une couverture orale exhaustive.
+2. La consigne « cinq cancers les plus fréquents / cinq les plus mortels » n'est **pas entièrement documentée** dans les diapositives fournies.
+3. Vérifier les sources de chiffres contradictoires et la cohérence des légendes, notamment les données de causes de décès en France 2021/2023.
+4. Relecture manuelle fine de la V7 à l'échelle d'impression ; certaines légendes des images officielles restent petites.
+5. Vérifier le droit de rediffuser des diapositives officielles dans l'application publique, ou remplacer les quatre visuels par des infographies originales dérivées des faits sourcés.
+6. Contrôler la correspondance exacte entre la banque active, le PDF QCM V4, les fiches et les références du catalogue.
+
+## Release gate
+
+- `studentReleaseApproved=false` et `explicitAcceptanceOfFinalBytes=false`.
+- Ne pas modifier `course-registry-v741.json`, `sheets-3.json`, les URL publiques ni les permissions Drive avant satisfaction de tous les contrôles.
+- Cette PR peut servir de base de travail, mais **reste en brouillon et ne doit pas être fusionnée** comme une publication prête.
