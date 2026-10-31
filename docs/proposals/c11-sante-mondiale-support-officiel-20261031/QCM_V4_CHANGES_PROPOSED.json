@@ -1,0 +1,19 @@
+{
+  "courseId": "sante_mondiale_sante_france",
+  "status": "proposal_only_not_published",
+  "questionCount": 56,
+  "corrections": [
+    {
+      "id": "c11_s1_q030",
+      "oldQuestion": "Neuf cas nouveaux parmi 100 initialement indemnes suivies intégralement deux ans :",
+      "newQuestion": "Neuf nouveaux cas parmi 100 personnes initialement indemnes suivies intégralement pendant deux ans :",
+      "answersUnchanged": true
+    },
+    {
+      "id": "c11_s1_q050",
+      "oldQuestion": "À propos du nombre de nouveaux diagnostics de cancer enregistrés sur une période :",
+      "newQuestion": "Concernant l’incidence des cancers sur une période, quelles propositions sont exactes ?",
+      "answersUnchanged": true
+    }
+  ]
+}
