@@ -7,7 +7,7 @@
   "source": {
     "officialSupportReceived": true,
     "officialSupportReviewedPageByPage": false,
-    "teacherPriorityVisualClassification": "pending",
+    "teacherPriorityVisualClassification": "67_priority_slides_mapped_from_101",
     "historicalCapturesAndTranscript": "partial_review_existing",
     "oralCoverageExhaustive": false,
     "sourceInPublicRepository": false
@@ -25,17 +25,18 @@
   "revision": {
     "fullPedagogicalReconciliation": "pending",
     "scientificAccuracyReview": "pending",
-    "newSingleRevisionPdf": "pending",
-    "visualModelComparison": "pending",
+    "newSingleRevisionPdf": "private_v7_20_pages_official_course_visuals",
+    "visualModelComparison": "in_progress_remaining_small_labels_and_whitespace",
     "pdfAllPagesInspected": false,
     "historicalResourcesPreserved": true,
-    "explicitAcceptanceOfFinalBytes": false
+    "explicitAcceptanceOfFinalBytes": false,
+    "qcmPdf": "private_v4_21_pages_56_questions"
   },
   "gaps": [
     {
       "area": "teacher_priorities",
-      "issue": "Red frames and white-on-violet titles must be mapped visually, rather than inferred from text extraction.",
-      "priority": "blocking"
+      "issue": "67 distinct priority slides mapped from the 101-slide original course; final source and graphical review still required",
+      "priority": "review"
     },
     {
       "area": "cancers",
@@ -64,5 +65,11 @@
     }
   ],
   "targetCourseSeparate": "organisation_systeme_sante",
-  "notes": "Public file contains no original lecture slides, transcripts, raw source contents, private Drive IDs or false approval. Updating this gate does not publish anything."
+  "notes": "Private candidates exist. Do not publish URLs, PDF source slides, private file IDs, or set approval flags. No public source or new website content has been consulted. Source priorities mapped; missing oral and two cancer rankings remain blockers.",
+  "privateCandidateHashes": {
+    "ficheV7SHA256": "58456ae15679ca9994172ce1c1d6495aedc94a66948cfc469d370091fec51d25",
+    "qcmV4SHA256": "4153a3b554fb7dc676fb745c26f8ab7c302493c51616b743b1af46a2ca6cac8e",
+    "fichePages": 20,
+    "qcmPages": 21
+  }
 }
