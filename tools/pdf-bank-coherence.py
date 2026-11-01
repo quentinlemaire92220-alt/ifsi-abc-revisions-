@@ -330,6 +330,42 @@ def validate_reviewed_qcm(doc,rows):
         args=re.split(r'(?:^|\s)([A-E])\s*:\s*',q['explanation'])[1:]
         assert len(args)==10 and all(norm(a) in norm(block) for a in args[1::2]),q['id']+': argument divergent'
 
+def validate_c11_qcm(doc, rows):
+    """V4 : contrôle strict du PDF C1.1 et de la banque interactive 56 QCM."""
+    import re
+    rows=sorted((q for q in rows if q.get('courseId')=='sante_mondiale_sante_france'),
+                key=lambda q:int(q['id'].rsplit('q',1)[-1]))
+    assert len(rows)==56, 'C1.1 : banque de 56 questions non exhaustive'
+    raw='\n'.join(page.get_text(sort=True) for page in doc)
+    pieces=raw.split('Corrigés argumentés')
+    assert len(pieces)==2,'C1.1 : manque la séparation questions / corrigés'
+    question_text, correction_text=pieces
+    qpat=r'Question\\s+(\\d{2})\\s*·\\s*(facile|intermédiaire|difficile)\\s*·\\s*([123])\\s+bonnes? réponses?'
+    apat=r'Q(\\d{2})\\s*·\\s*([123])\\s+réponses?\\s*:\\s*([A-E, ]+)\\s*—'
+    qs=list(re.finditer(qpat, question_text, re.I))
+    ans=list(re.finditer(apat, correction_text, re.I))
+    assert len(qs)==len(ans)==56,'C1.1 : question ou corrigé perdu / doublon'
+    assert [int(m[1]) for m in qs]==[int(m[1]) for m in ans]==list(range(1,57)), 'C1.1 : ordre de questions incorrect'
+    translate={'easy':'facile','medium':'intermédiaire','hard':'difficile'}
+    for index,(row,q,a) in enumerate(zip(rows,qs,ans)):
+        serial=index+1
+        assert row['id'].endswith('q%03d'%serial),'C1.1 : identifiant banque incorrect'
+        question_block=question_text[q.end():qs[index+1].start() if index<55 else len(question_text)]
+        answer_block=correction_text[a.end():ans[index+1].start() if index<55 else len(correction_text)]
+        assert q[2].lower()==translate[row['difficulty']],row['id']+': niveau divergent'
+        assert len(row['choices'])==5 and 1<=len(row['answers'])<=3,row['id']+': nombre de choix invalide'
+        assert int(q[3])==int(a[2])==len(row['answers']),row['id']+': nombre de réponses divergent'
+        assert norm(row['question']) in norm(question_block),row['id']+': énoncé divergent du PDF'
+        choices=re.findall(r'(?:□\\s*)?([A-E])\\.\\s+([^\\n]+)',question_block)
+        assert [letter for letter,_ in choices]==list('ABCDE'),row['id']+': cinq propositions dans le bon ordre absentes'
+        for i,(_,value) in enumerate(choices):
+            assert norm(value)==norm(row['choices'][i]),row['id']+': proposition différente '+chr(65+i)
+        expected=', '.join(chr(65+i) for i in row['answers'])
+        assert norm(a[3])==expected,row['id']+': clé de correction erronée'
+        assert len(norm(answer_block))>=25,row['id']+': corrigé argumenté manquant'
+        assert row['explanation'] and len(row['explanation'])>25,row['id']+': explication bancaire manquante'
+    print('PASS PDF Santé mondiale : 56 énoncés, 280 choix, 56 clés argumentées, niveaux et nombres annoncés concordants')
+
 def check(course):
     for role,asset in course['publicArtifacts'].items():
         path=Path(asset['path'])
@@ -356,6 +392,11 @@ def check(course):
                 continue
             assert all(abs(p.rect.width-595.276)<1 and abs(p.rect.height-841.89)<1 for p in doc),'Format A4 absent'
             text=body(doc)
+            if course['courseId']=='sante_mondiale_sante_france' and role=='qcm':
+                rows=json.loads(Path(course['qcmBank']).read_text(encoding='utf8'))
+                validate_c11_qcm(doc,rows)
+                print('PASS PDF',course['courseId'],role,asset['pageCount'],'pages')
+                continue
             if course.get('officialRevision',{}).get('contract')=='psychologie_sante_official_revision_v1' and role in ('qcm','flashcards'):
                 rows=json.loads(Path(course['qcmBank']).read_text(encoding='utf8'))
                 validate_boxed_recall(doc,rows,role)
