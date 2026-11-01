@@ -22,7 +22,14 @@ export function validateHybridDelivery(courseId, delivery, sheets, {requirePubli
  assert.equal(sheet.sheetFormat,'hybrid_infographic',courseId+': sheetFormat hybride attendu');
  validateSheetSource(courseId,delivery,sheet);
  const id=idFrom(sheet);
- assert.ok(/^[\w-]+$/.test(id||'') && /^https:\/\/drive\.google\.com\/file\/d\/[\w-]+/.test(sheet.url||''),
+ const hosted=delivery.publicationHost==='github_pages'&&delivery.publicArtifacts?.sheet;
+ if(hosted){
+  const a=delivery.publicArtifacts.sheet;
+  assert.equal(sheet.url,'https://quentinlemaire92220-alt.github.io/ifsi-abc-revisions/'+a.path,courseId+': URL Pages hors asset');
+  assert.equal(a.sha256,delivery.visualAudit?.pdfSha256,courseId+': SHA de fiche Pages incohérent');
+  assert.equal(delivery.artifactSha256s?.[a.artifactId],a.sha256,courseId+': identité binaire non vérifiée');
+  assert.equal(sheet.driveId,undefined,courseId+': ne pas exposer le Drive privé dans le catalogue');
+ }else assert.ok(/^[\\w-]+$/.test(id||'') && /^https:\\/\\/drive\\.google\\.com\\/file\\/d\\/[\\w-]+/.test(sheet.url||''),
   courseId+': lien Drive réel obligatoire (pas de lien fictif)');
  assert.equal(delivery.schematics,'embedded_only',courseId+': les figures restent intégrées à la fiche');
  assert.ok(Number.isInteger(delivery.embeddedFigureCount) && delivery.embeddedFigureCount>0,
@@ -35,7 +42,7 @@ export function validateHybridDelivery(courseId, delivery, sheets, {requirePubli
  assert.equal(audit.checkedCount,audit.expectedCount,courseId+': visuels non tous inspectés');
  assert.ok(Number.isInteger(audit.pageCount) && audit.pageCount>0,courseId+': nombre de pages invalide');
  assert.equal(audit.pageSize,'A4',courseId+': format PDF non attesté');
- assert.equal(delivery.artifactSha256s?.[id]?.toLowerCase(),audit.pdfSha256.toLowerCase(),
+ assert.equal(delivery.artifactSha256s?.[hosted?hosted.artifactId:id]?.toLowerCase(),audit.pdfSha256.toLowerCase(),
   courseId+': empreinte du PDF et du manifeste divergente');
  const coverage=delivery.hybridCoverage;
  assert.ok(Number.isInteger(coverage?.expectedEssential) && coverage.expectedEssential>0,
