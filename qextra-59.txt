@@ -962,7 +962,7 @@
     "partId": "p01",
     "theme": "Mortalité des enfants",
     "difficulty": "easy",
-    "question": "Quelles tendances générales observe-t-on dans la mortalité des enfants depuis 2000 ?",
+    "question": "Que montrent les courbes historiques de mortalité des moins de cinq ans ?",
     "choices": [
       "Un ralentissement de la baisse sur une période récente",
       "L’inversion générale de toutes les courbes",
@@ -1034,7 +1034,7 @@
     "partId": "p01",
     "theme": "Prévalence, incidence et personnes-années",
     "difficulty": "hard",
-    "question": "Neuf cas nouveaux parmi 100 initialement indemnes suivies intégralement deux ans :",
+    "question": "Neuf nouveaux cas parmi 100 personnes initialement indemnes suivies intégralement pendant deux ans :",
     "choices": [
       "Un taux de 9 cas/personne-année",
       "Le risque cumulé porte sur la période entière",
@@ -1174,7 +1174,7 @@
     "partId": "p01",
     "theme": "Transition épidémiologique",
     "difficulty": "easy",
-    "question": "Parmi les affections suivantes, lesquelles sont des maladies non transmissibles ?",
+    "question": "Quelles sont les maladies non transmissibles ?",
     "choices": [
       "Paludisme",
       "Diabète",
@@ -1247,7 +1247,7 @@
     "partId": "p01",
     "theme": "Transition épidémiologique",
     "difficulty": "hard",
-    "question": "Pour interpréter les disparités de santé entre régions du Nord et du Sud, quelles affirmations sont pertinentes ?",
+    "question": "Comment interpréter un gradient Nord-Sud des indicateurs de santé ?",
     "choices": [
       "Comme un raccourci de disparités historiques",
       "En tenant compte des déterminants sociaux et de l’accès aux soins",
@@ -1568,7 +1568,7 @@
     "partId": "p01",
     "theme": "Paludisme, tuberculose et infections",
     "difficulty": "hard",
-    "question": "Laquelle des affections suivantes est une maladie infectieuse émergente ou réémergente ?",
+    "question": "Quel exemple représente un risque infectieux émergent ?",
     "choices": [
       "Arthrose",
       "Dyslipidémie",
@@ -1744,7 +1744,7 @@
     "partId": "p01",
     "theme": "Cancers et dépistage",
     "difficulty": "medium",
-    "question": "À propos du nombre de nouveaux diagnostics de cancer enregistrés sur une période :",
+    "question": "Concernant l’incidence des cancers sur une période, quelles propositions sont exactes ?",
     "choices": [
       "Elle désigne uniquement la survie à cinq ans",
       "La croissance et le vieillissement de la population peuvent augmenter le nombre absolu de cas",
@@ -1922,7 +1922,7 @@
     "partId": "p01",
     "theme": "Synthèse et interprétation",
     "difficulty": "easy",
-    "question": "Quel ensemble de priorités correspond le mieux aux attentes orales pour l’évaluation ?",
+    "question": "Pour interpréter un indicateur de santé publique, quel principe général faut-il privilégier ?",
     "choices": [
       "Apprendre chaque nombre annuel par cœur avant tout",
       "Mémoriser des chiffres sans connaître les unités ni les dénominateurs",

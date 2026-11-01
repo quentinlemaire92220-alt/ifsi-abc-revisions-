@@ -527,7 +527,7 @@
     "provisional": true,
     "officialSupport": false,
     "sourceBasis": "course_captures",
-    "sourceStatus": "active",
+    "sourceStatus": "archived",
     "driveId": "1dD5itQ7ikaQvz9oUpAZEr7vo8cDFOLKQ",
     "url": "https://drive.google.com/file/d/1dD5itQ7ikaQvz9oUpAZEr7vo8cDFOLKQ/view",
     "sheetFormat": "classic"
@@ -544,7 +544,7 @@
     "provisional": true,
     "officialSupport": false,
     "sourceBasis": "course_captures",
-    "sourceStatus": "active",
+    "sourceStatus": "archived",
     "driveId": "10Gg_4oTzVn7qM6Cm2J9R69albTl-3ZPm",
     "url": "https://drive.google.com/file/d/10Gg_4oTzVn7qM6Cm2J9R69albTl-3ZPm/view",
     "sheetFormat": "complete_infographic"
@@ -805,5 +805,25 @@
     "lexiconTermCount": 73,
     "sheetFormat": "written_revision",
     "primaryRevision": true
+  },
+  {
+    "title": "UE_C11_Sante_Mondiale_Fiche_Hybride_V7_3.pdf",
+    "label": "Santé mondiale et santé en France — fiche hybride V7.3",
+    "displayTitle": "Santé mondiale et santé en France — fiche hybride (21 pages)",
+    "courseId": "sante_mondiale_sante_france",
+    "resourceId": "sante_mondiale_sante_france_fiche_hybride_v73",
+    "ue": "S1 C1.1",
+    "part": "01",
+    "partId": "p01",
+    "provisional": true,
+    "officialSupport": true,
+    "sourceBasis": "101 diapositives officielles du 20/10/2026. Transcription introuvable; top 5 des cancers absent des supports; écart 2021/2023 indiqué.",
+    "sourceStatus": "active",
+    "sheetFormat": "hybrid_infographic",
+    "primaryRevision": true,
+    "pageCount": 21,
+    "lexiconTermCount": 56,
+    "publicationHost": "github_pages",
+    "url": "https://quentinlemaire92220-alt.github.io/ifsi-abc-revisions/assets/c11-sante-mondiale/UE_C11_Sante_Mondiale_Fiche_Hybride_V7_3.pdf"
   }
 ]

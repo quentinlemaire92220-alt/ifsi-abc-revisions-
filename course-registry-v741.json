@@ -1,5 +1,5 @@
 {
-  "version": "8.30.157",
+  "version": "8.30.158",
   "courses": [
     {
       "id": "biomolecules",
@@ -975,9 +975,9 @@
       "semester": "S1",
       "part": "01",
       "teachingUnit": "C1.1",
-      "sourceStatus": "provisional_captures",
-      "officialSupport": false,
-      "qcmPdfUrl": "https://drive.google.com/file/d/19WW-HFiGz_8FsfJuOFqSZe7ov82gG_4p/view",
+      "sourceStatus": "provisional",
+      "officialSupport": true,
+      "qcmPdfUrl": "https://quentinlemaire92220-alt.github.io/ifsi-abc-revisions/assets/c11-sante-mondiale/UE_C11_Sante_Mondiale_QCM_56_V4_Corriges.pdf",
       "qcmPdfQuestionCount": 56,
       "flashcardTarget": 56,
       "authoredFlashcards": true,
@@ -993,11 +993,23 @@
         {
           "label": "Flashcards — 56 cartes",
           "url": "https://drive.google.com/file/d/1W3Z5WNEQAcF5uOwGIgJI6vUcIju3q0Lw/view"
+        },
+        {
+          "type": "revision",
+          "label": "Fiche hybride V7.3 — 21 pages, sommaire et infographies (oral manquant)",
+          "url": "https://quentinlemaire92220-alt.github.io/ifsi-abc-revisions/assets/c11-sante-mondiale/UE_C11_Sante_Mondiale_Fiche_Hybride_V7_3.pdf"
+        },
+        {
+          "type": "qcm",
+          "label": "56 QCM corrigés V4 — Santé mondiale",
+          "url": "https://quentinlemaire92220-alt.github.io/ifsi-abc-revisions/assets/c11-sante-mondiale/UE_C11_Sante_Mondiale_QCM_56_V4_Corriges.pdf"
         }
       ],
       "audioStatus": "available",
       "audioCount": 2,
-      "audioFolderUrl": "https://drive.google.com/drive/folders/14t1L6Rca-M7F0RtJY16r1HRRFNyAkL9H"
+      "audioFolderUrl": "https://drive.google.com/drive/folders/14t1L6Rca-M7F0RtJY16r1HRRFNyAkL9H",
+      "provisional": true,
+      "sourceNote": "Support officiel de 101 diapositives du 20/10/2026 intégré. Transcription orale authentifiée absente ; classements complets des cinq cancers non documentés dans les diapositives ; chiffres 2021/2023 contradictoires signalés. Fiche hybride V7.3 et 56 QCM corrigés publiés avec ces réserves."
     },
     {
       "id": "responsabilite_exercice_professionnel",

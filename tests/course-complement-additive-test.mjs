@@ -74,6 +74,24 @@ for(const file of ['sheets-1.json','sheets-2.json','infographics.json']){
   verifyPublicArtifact(d,s.url);
   assert.ok(new URL(s.url).pathname.endsWith('/'+d.publicArtifacts.sheet.path),'Fiche approuvée et URL divergentes');
  }
+ if(file==='infographics.json'){
+  const c=publicationApprovals.find(d=>d.courseId==='sante_mondiale_sante_france');
+  const approved=c?.officialRevision?.kind==='official_support_partial_with_missing_oral' &&
+   c.publicationApproval?.authorization==='explicit_go_publication' &&
+   c.publicationApproval?.status==='approved' &&
+   c.publicArtifacts?.sheet?.sha256==='a74f9df5707f5fc23db99ff9624abf79f4a0cb8bc5f88f14c7fc5c82226323fc';
+  if(approved){
+   assert.equal(current.length,previous.length,'Aucune planche historique supprimée');
+   for(let i=0;i<previous.length;i++){
+    const before=previous[i],after=current[i];
+    if(before.courseId==='sante_mondiale_sante_france'){
+     assert.deepEqual(after,{...before,sourceStatus:'archived'},
+       'Une planche C1.1 modifiée autrement que par archivage');
+    }else assert.deepEqual(after,before,'Planche historique extérieure au cours altérée');
+   }
+   continue;
+  }
+ }
  assert.deepEqual(current.filter(s=>!approvedNewSheets.has(s.resourceId)),previous);
 }
 const sheets=[1,2,3].flatMap(n=>read(`sheets-${n}.json`)),oldSheets=[1,2,3].flatMap(n=>old(`sheets-${n}.json`));
@@ -135,6 +153,14 @@ for(const s of oldSheets){
  const next=sheets.find(x=>x.resourceId===s.resourceId&&x.url===s.url);
  if(next && JSON.stringify(next)===JSON.stringify(s))continue;
  if(allowOfficialSupportWithUnverifiedAudio(s,next))continue;
+ if(s.courseId==='sante_mondiale_sante_france' && ['sante_mondiale_sante_france_fiche_p01','sante_mondiale_sante_france_fiche_complete_infographiee_p01'].includes(s.resourceId)){
+  const release=publicationApprovals.find(d=>d.courseId===s.courseId);
+  assert.equal(release?.officialRevision?.kind,'official_support_partial_with_missing_oral');
+  assert.equal(release?.publicationApproval?.authorization,'explicit_go_publication');
+  assert.deepEqual(next,{...s,sourceStatus:'archived'},
+    'Fiche C1.1 historique modifiée autrement que par archivage');
+  continue;
+ }
  if(allowDroitsArchival(s,next))continue;
  if(isPsychologieSheetArchive(s,next,read('docs/course-deliveries.json').courses.find(c=>c.courseId===s.courseId)))continue;
  if(!next&&read('docs/course-deliveries.json').courses.find(c=>c.courseId===s.courseId)?.reconciliation?.type==='provisional_to_official_v1')verifyOfficialCourseReconciliation(s.courseId,base);

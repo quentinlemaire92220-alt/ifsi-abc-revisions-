@@ -112,7 +112,11 @@ export function validateVisualOwnerReview(courseId,delivery,data){
   const sheet=(data.sheets||[]).find(s=>s.courseId===courseId&&s.resourceId===id);
   assert.ok(sheet,courseId+': fiche non repertoriee '+id);
   const idDrive=driveId(sheet);
-  const live=idDrive?(delivery.artifactSha256s||{})[idDrive]:null;
+  const hosted=delivery.publicationHost==='github_pages' && delivery.publicArtifacts?.sheet &&
+   sheet?.url==='https://quentinlemaire92220-alt.github.io/ifsi-abc-revisions/'+delivery.publicArtifacts.sheet.path;
+  const artifactId=hosted?delivery.publicArtifacts.sheet.artifactId:idDrive;
+  const live=artifactId?(delivery.artifactSha256s||{})[artifactId]:null;
+  if(hosted)assert.equal(live,delivery.publicArtifacts.sheet.sha256,courseId+': PDF Pages non relié à ses octets approuvés');
   assert.ok(digest(live),courseId+': SHA-256 PDF fiche absent '+id);
   assert.equal(review.reviewedPdfSha256s?.[id],live,
    courseId+': la revue graphique ne correspond pas aux octets de '+id);
@@ -123,7 +127,7 @@ export function validateVisualOwnerReview(courseId,delivery,data){
   assert.equal(review.reviewedBoardSha256s?.[id],live,
    courseId+': planche infographique non revue ou modifiee '+id);
  }
- const graphics=(data.infographics||[]).filter(x=>x.courseId===courseId&&x.localImage);
+ const graphics=(data.infographics||[]).filter(x=>x.courseId===courseId&&x.localImage&&x.sourceStatus!=='archived');
  for(const image of graphics){
   const live=(data.imageHashes||{})[image.localImage];
   assert.ok(digest(live),courseId+': empreinte image absente '+image.resourceId);

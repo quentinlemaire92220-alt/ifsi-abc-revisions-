@@ -1760,14 +1760,16 @@
       "part": "01",
       "validated": true,
       "status": "partial",
-      "deliveryMode": "source_limited_first_release",
+      "deliveryMode": "existing_course_revision",
       "sourceBasis": {
-        "kind": "course_captures",
-        "nativeSupportAvailable": false,
-        "reconciled": true,
-        "reviewedCaptureCount": 101
+        "kind": "official_support_only",
+        "nativeSupportAvailable": true,
+        "reconciled": false,
+        "reviewedSlideCount": 101,
+        "oralTranscriptAvailable": false,
+        "description": "Support officiel 101 diapositives, 20/10/2026; anciens supports pour comparaison, oral authentifié absent; aucune source externe."
       },
-      "packFormat": "lean_v1",
+      "packFormat": "hybrid_v1",
       "driveFolderId": "1hTI4WdjGNT25tYrK780f2bxZ4q9cDY5T",
       "folders": {
         "01": "1kFCX7tN7ALLHZ8jsdA3LT02nf65dOkIc",
@@ -1778,26 +1780,15 @@
         "06": "1jcRXtlJTsf0gzVMp5h-RMYRRivoeAV1n",
         "07": "1ZSKdMh-mFSaZgXJs987PyTU2e2_oRsbq"
       },
-      "sheetResourceId": "sante_mondiale_sante_france_fiche_p01",
-      "infographicSheetResourceId": "sante_mondiale_sante_france_fiche_complete_infographiee_p01",
+      "sheetResourceId": "sante_mondiale_sante_france_fiche_hybride_v73",
       "qcmDriveId": "19WW-HFiGz_8FsfJuOFqSZe7ov82gG_4p",
       "qcmBank": "qextra-59.txt",
       "qcmCount": 56,
       "flashcardCount": 56,
       "flashcardDriveId": "1W3Z5WNEQAcF5uOwGIgJI6vUcIju3q0Lw",
       "infographicPackDriveId": "10Gg_4oTzVn7qM6Cm2J9R69albTl-3ZPm",
-      "infographicResourceIds": [
-        "sante_mondiale_sante_france_info_p01_01",
-        "sante_mondiale_sante_france_info_p01_02",
-        "sante_mondiale_sante_france_info_p01_03",
-        "sante_mondiale_sante_france_info_p01_04",
-        "sante_mondiale_sante_france_info_p01_05",
-        "sante_mondiale_sante_france_info_p01_06",
-        "sante_mondiale_sante_france_info_p01_07",
-        "sante_mondiale_sante_france_info_p01_08",
-        "sante_mondiale_sante_france_info_p01_09"
-      ],
-      "schematics": "with_exports",
+      "infographicResourceIds": [],
+      "schematics": "embedded_only",
       "embeddedFigureCount": 5,
       "requestedVocals": false,
       "vocals": [
@@ -1806,14 +1797,24 @@
       ],
       "blockers": [
         {
-          "resource": "support",
-          "reason": "native_support_unavailable",
-          "detail": "101 captures et transcription disponibles, support officiel intégral absent."
+          "resource": "transcription",
+          "reason": "oral_source_missing",
+          "detail": "Transcription originale de Santé mondiale non retrouvée ; ne pas attribuer de détails oraux à l'enseignant."
+        },
+        {
+          "resource": "cancer_ranking",
+          "reason": "unsupported_teacher_requested_content",
+          "detail": "Classements complets des cinq cancers fréquents et mortels non fournis dans les diapositives."
+        },
+        {
+          "resource": "source_numbers",
+          "reason": "conflicting_source_year",
+          "detail": "Diapositive 98 : chiffres dits 2023, source bibliographique 2021."
         },
         {
           "resource": "coverage",
           "reason": "missing_course_segment",
-          "detail": "Chapitre détaillé accès et recours aux soins non présent dans les sources fournies."
+          "detail": "Accès et recours aux soins cités mais non développés dans le support accessible."
         }
       ],
       "artifactSha256s": {
@@ -1831,20 +1832,25 @@
         "19WW-HFiGz_8FsfJuOFqSZe7ov82gG_4p": "88ceb21c827d6727867415addf5c6cec4d921d3128b7b46fe8c490bdcc618e44",
         "1W3Z5WNEQAcF5uOwGIgJI6vUcIju3q0Lw": "1461946ac86f4215c6e11e68a1a8f7ad9ef69d274f7cc4b5b64e566b9e450bfb",
         "1v3cfOTPdwpiSpp77SSp9GTT2t_kV90rU": "e18dffab826a424fda009a55f9a1c9c699bc74c30a70c18b7590d54f9d2b18ab",
-        "1xOuVF4d7F81dlZ9JOY3HtyZu8iuPNZOz": "4f181bd4ff2978d1d58337c4a6d9237a31d24b8e28a6e38def5dbf6908602433"
+        "1xOuVF4d7F81dlZ9JOY3HtyZu8iuPNZOz": "4f181bd4ff2978d1d58337c4a6d9237a31d24b8e28a6e38def5dbf6908602433",
+        "sante_mondiale_sante_france_fiche_hybride_v73_public": "a74f9df5707f5fc23db99ff9624abf79f4a0cb8bc5f88f14c7fc5c82226323fc",
+        "sante_mondiale_sante_france_qcm_56_v4_public": "4153a3b554fb7dc676fb745c26f8ab7c302493c51616b743b1af46a2ca6cac8e"
       },
       "visualAudit": {
         "status": "PASS",
-        "pdfSha256": "31525ab214f63001ea51ba94ba0af8ffd5b16c1ec5a121bee059e907ef74c136",
+        "pdfSha256": "a74f9df5707f5fc23db99ff9624abf79f4a0cb8bc5f88f14c7fc5c82226323fc",
         "expectedCount": 5,
-        "checkedCount": 5
+        "checkedCount": 5,
+        "pageCount": 21,
+        "pageSize": "A4"
       },
       "publishedVerification": {
         "status": "MATCH",
         "source": "authenticated_drive_download",
-        "pdfSha256": "31525ab214f63001ea51ba94ba0af8ffd5b16c1ec5a121bee059e907ef74c136",
+        "pdfSha256": "a74f9df5707f5fc23db99ff9624abf79f4a0cb8bc5f88f14c7fc5c82226323fc",
         "expectedCount": 5,
-        "checkedCount": 5
+        "checkedCount": 5,
+        "pageCount": 21
       },
       "infographicSheetVisualAudit": {
         "status": "PASS",
@@ -1862,33 +1868,15 @@
         "checkedCount": 9,
         "pageCount": 9
       },
-      "dualSheetCoverage": {
-        "expectedNotions": 13,
-        "classicCovered": 13,
-        "infographicCovered": 13,
-        "medicalReview": "approved",
-        "readabilityReview": "approved"
-      },
       "partDeliveries": [
         {
           "partId": "p01",
           "validated": true,
           "status": "partial",
           "sheetResourceIds": [
-            "sante_mondiale_sante_france_fiche_p01",
-            "sante_mondiale_sante_france_fiche_complete_infographiee_p01"
+            "sante_mondiale_sante_france_fiche_hybride_v73"
           ],
-          "infographicResourceIds": [
-            "sante_mondiale_sante_france_info_p01_01",
-            "sante_mondiale_sante_france_info_p01_02",
-            "sante_mondiale_sante_france_info_p01_03",
-            "sante_mondiale_sante_france_info_p01_04",
-            "sante_mondiale_sante_france_info_p01_05",
-            "sante_mondiale_sante_france_info_p01_06",
-            "sante_mondiale_sante_france_info_p01_07",
-            "sante_mondiale_sante_france_info_p01_08",
-            "sante_mondiale_sante_france_info_p01_09"
-          ],
+          "infographicResourceIds": [],
           "qcmQuestionIds": [
             "c11_s1_q001",
             "c11_s1_q002",
@@ -1950,24 +1938,227 @@
           "vocalIds": [],
           "blockers": [
             {
-              "resource": "support",
-              "reason": "native_support_unavailable",
-              "detail": "101 captures et transcription disponibles, support officiel intégral absent."
+              "resource": "transcription",
+              "reason": "oral_source_missing",
+              "detail": "Transcription originale de Santé mondiale non retrouvée ; ne pas attribuer de détails oraux à l'enseignant."
+            },
+            {
+              "resource": "cancer_ranking",
+              "reason": "unsupported_teacher_requested_content",
+              "detail": "Classements complets des cinq cancers fréquents et mortels non fournis dans les diapositives."
+            },
+            {
+              "resource": "source_numbers",
+              "reason": "conflicting_source_year",
+              "detail": "Diapositive 98 : chiffres dits 2023, source bibliographique 2021."
             },
             {
               "resource": "coverage",
               "reason": "missing_course_segment",
-              "detail": "Chapitre détaillé accès et recours aux soins non présent dans les sources fournies."
+              "detail": "Accès et recours aux soins cités mais non développés dans le support accessible."
             }
-          ]
+          ],
+          "sheetResourceId": "sante_mondiale_sante_france_fiche_hybride_v73",
+          "packFormat": "hybrid_v1",
+          "deliveryMode": "existing_course_revision",
+          "provisional": true,
+          "publicationHost": "github_pages",
+          "sourceBasis": {
+            "kind": "official_support_only",
+            "nativeSupportAvailable": true,
+            "reconciled": false,
+            "reviewedSlideCount": 101,
+            "oralTranscriptAvailable": false,
+            "description": "Support officiel 101 diapositives, 20/10/2026; anciens supports pour comparaison, oral authentifié absent; aucune source externe."
+          },
+          "sourceAudit": {
+            "officialChecked": true,
+            "officialSupportMissing": false,
+            "oralStatus": "unavailable",
+            "oralCoverageExhaustive": false,
+            "cancerTopFiveComplete": false,
+            "mortalitySourceYearConflict": "2021_vs_2023"
+          },
+          "visualAudit": {
+            "status": "PASS",
+            "pdfSha256": "a74f9df5707f5fc23db99ff9624abf79f4a0cb8bc5f88f14c7fc5c82226323fc",
+            "expectedCount": 5,
+            "checkedCount": 5,
+            "pageCount": 21,
+            "pageSize": "A4"
+          },
+          "publishedVerification": {
+            "status": "MATCH",
+            "source": "authenticated_drive_download",
+            "pdfSha256": "a74f9df5707f5fc23db99ff9624abf79f4a0cb8bc5f88f14c7fc5c82226323fc",
+            "expectedCount": 5,
+            "checkedCount": 5,
+            "pageCount": 21
+          },
+          "schematics": "embedded_only",
+          "embeddedFigureCount": 5,
+          "hybridCoverage": {
+            "expectedEssential": 18,
+            "coveredEssential": 18,
+            "prioritySourceReference": "Support officiel 101 diapositives, 67 diapositives prioritaires repérées; classement des 5 cancers non soutenu et signalé hors matrice.",
+            "medicalReview": "approved",
+            "readabilityReview": "approved"
+          },
+          "hybridVisualReview": {
+            "status": "approved",
+            "reference": "pharmacologie_v1.47_24_pages",
+            "pagesChecked": 21,
+            "notes": "Modèle comparé, infographies vectorielles originales, cinq pages modifiées; petites légendes sous 8pt à l'impression."
+          },
+          "lexicon": {
+            "termCount": 56,
+            "textSelectable": true,
+            "checked": true,
+            "sourceSha256": "6165cb7f8ac1b9296d9b13ef0fe15986ad07d3893b0b9f4461d7e3287233f934"
+          },
+          "artifactSha256s": {
+            "19QDaigE_jbhYV6gnABN0X2xZNJXzM195": "1cbad197b60cf4f5e59eccb088e11318760c3efa87c69af10150c370446c792d",
+            "1O_-yCV8GHyA3g50QhE0oX1f2H-RCIIsm": "2d07fa9285a70e125e0370e25343133714c07f1f678ef2edb6c33ca590cc71c2",
+            "1XaBSQEOCR8yruSNuPlkov_qXpori0AYq": "5dcba19a1898de457c4cb92c63b56e0f006042923b61d6fa3a2ac9c5424a9507",
+            "1drGMC7ZQDp_pxM9GFJTFq9Xrh7-9ewxo": "eabcc82eb30f8db7bcd67fc164f417e8072d2852067c3463af863092aa65516a",
+            "1RBKNkBhqUj_5fkqye_iQ2kLu9oGTETug": "e79b93e7a3c6b33f4a20782f1fe34f954edd1274f0373105716ee4fd76c1ee40",
+            "1-66LucM0QFdJcVbmpGS8wYMTIghir7aE": "2f4f809e1d4ec3f01aa6defdbf049f54f9f608c847b48a97d85ff2c0c8ef8518",
+            "1yaNcdFUr2Dgtfq_2Ic_tuiFaVTut1N3t": "31045707fdd64405b6f0eeefc23d24b5bce4378759d42cff934af299ec761c2c",
+            "1awZEPHeWPK1eKrFpom1dH14ARbKeggaJ": "28c24df3d6d51f53a069a66bd2f457274b5d521ce5ef9796aebb2d1037cae04e",
+            "1ri-b8nRrl9uC9A0H-hcPYuJt3LsuxPLG": "163362c35e65a3f8c35531ec7f74f5185c07916773471e09ebc234ed6ad7f43a",
+            "1dD5itQ7ikaQvz9oUpAZEr7vo8cDFOLKQ": "31525ab214f63001ea51ba94ba0af8ffd5b16c1ec5a121bee059e907ef74c136",
+            "10Gg_4oTzVn7qM6Cm2J9R69albTl-3ZPm": "76a4e6572b40e347409d5c432037c35c13d9af8346b3bb5daa321e4d92c67dd2",
+            "19WW-HFiGz_8FsfJuOFqSZe7ov82gG_4p": "88ceb21c827d6727867415addf5c6cec4d921d3128b7b46fe8c490bdcc618e44",
+            "1W3Z5WNEQAcF5uOwGIgJI6vUcIju3q0Lw": "1461946ac86f4215c6e11e68a1a8f7ad9ef69d274f7cc4b5b64e566b9e450bfb",
+            "1v3cfOTPdwpiSpp77SSp9GTT2t_kV90rU": "e18dffab826a424fda009a55f9a1c9c699bc74c30a70c18b7590d54f9d2b18ab",
+            "1xOuVF4d7F81dlZ9JOY3HtyZu8iuPNZOz": "4f181bd4ff2978d1d58337c4a6d9237a31d24b8e28a6e38def5dbf6908602433",
+            "sante_mondiale_sante_france_fiche_hybride_v73_public": "a74f9df5707f5fc23db99ff9624abf79f4a0cb8bc5f88f14c7fc5c82226323fc",
+            "sante_mondiale_sante_france_qcm_56_v4_public": "4153a3b554fb7dc676fb745c26f8ab7c302493c51616b743b1af46a2ca6cac8e"
+          },
+          "publicArtifacts": {
+            "sheet": {
+              "path": "assets/c11-sante-mondiale/UE_C11_Sante_Mondiale_Fiche_Hybride_V7_3.pdf",
+              "sha256": "a74f9df5707f5fc23db99ff9624abf79f4a0cb8bc5f88f14c7fc5c82226323fc",
+              "pageCount": 21,
+              "artifactId": "sante_mondiale_sante_france_fiche_hybride_v73_public"
+            },
+            "qcm": {
+              "path": "assets/c11-sante-mondiale/UE_C11_Sante_Mondiale_QCM_56_V4_Corriges.pdf",
+              "sha256": "4153a3b554fb7dc676fb745c26f8ab7c302493c51616b743b1af46a2ca6cac8e",
+              "pageCount": 21,
+              "artifactId": "sante_mondiale_sante_france_qcm_56_v4_public"
+            }
+          },
+          "pedagogicalNonRegression": {
+            "contract": "ifsi_pedagogical_non_regression_v149",
+            "sheetSha256": "a74f9df5707f5fc23db99ff9624abf79f4a0cb8bc5f88f14c7fc5c82226323fc",
+            "privateEvidenceSha256": "b42c985e27c4cbb698464a181eebd9a97c89024fe1c856c83f4d718131c8f30d",
+            "reviewedAt": "2026-11-01T15:25:00+01:00",
+            "sourceInventory": "reviewed",
+            "sourceCoverage": "limited",
+            "inheritanceReview": "compared",
+            "depthReview": "reviewed",
+            "differencesReview": "reviewed",
+            "decision": "scoped_provisional_review_recorded"
+          }
         }
       ],
       "publicationApproval": {
         "status": "approved",
         "authorization": "explicit_go_publication",
         "scope": "course_package",
-        "approvedAt": "2026-10-21T12:39:33Z",
-        "bundleSha256": "41a0bee45df18f06966b74f0574668781a46529165bcbb02a60f921e80c2a646"
+        "approvedAt": "2026-11-01T15:25:00+01:00",
+        "bundleSha256": "d025420fddcb963e67daa6d2a6d4315f91f20ba1b7afed6559d0f6020c4a624d"
+      },
+      "provisional": true,
+      "pedagogicalValidated": false,
+      "publicationHost": "github_pages",
+      "sourceAudit": {
+        "officialChecked": true,
+        "officialSupportMissing": false,
+        "oralStatus": "unavailable",
+        "oralCoverageExhaustive": false,
+        "cancerTopFiveComplete": false,
+        "mortalitySourceYearConflict": "2021_vs_2023"
+      },
+      "hybridCoverage": {
+        "expectedEssential": 18,
+        "coveredEssential": 18,
+        "prioritySourceReference": "Support officiel 101 diapositives, 67 diapositives prioritaires repérées; classement des 5 cancers non soutenu et signalé hors matrice.",
+        "medicalReview": "approved",
+        "readabilityReview": "approved"
+      },
+      "hybridVisualReview": {
+        "status": "approved",
+        "reference": "pharmacologie_v1.47_24_pages",
+        "pagesChecked": 21,
+        "notes": "Modèle comparé, infographies vectorielles originales, cinq pages modifiées; petites légendes sous 8pt à l'impression."
+      },
+      "lexicon": {
+        "termCount": 56,
+        "textSelectable": true,
+        "checked": true,
+        "sourceSha256": "6165cb7f8ac1b9296d9b13ef0fe15986ad07d3893b0b9f4461d7e3287233f934"
+      },
+      "visualOwnerReview": {
+        "status": "owner_accepted",
+        "reference": "pharmacologie_v1.47_24_pages",
+        "method": "manual_full_pdf_comparison_100_200_percent",
+        "reviewedAt": "2026-11-01T15:25:00+01:00",
+        "reviewerDecision": "explicit_graphic_acceptance",
+        "criteria": {
+          "REVISION_TEXT_FIRST": "PASS",
+          "MEDICAL_ILLUSTRATION_REAL": "PASS",
+          "INTEGRATED_IN_CONTEXT": "PASS",
+          "ORIGINAL_LEGENDS_VERIFIED": "PASS",
+          "NO_DECORATIVE_BOX_SUBSTITUTION": "PASS",
+          "ALL_PAGES_CHECKED": "PASS"
+        },
+        "reviewedPdfSha256s": {
+          "sante_mondiale_sante_france_fiche_hybride_v73": "a74f9df5707f5fc23db99ff9624abf79f4a0cb8bc5f88f14c7fc5c82226323fc"
+        },
+        "reviewedImageSha256s": {}
+      },
+      "publicArtifacts": {
+        "sheet": {
+          "path": "assets/c11-sante-mondiale/UE_C11_Sante_Mondiale_Fiche_Hybride_V7_3.pdf",
+          "sha256": "a74f9df5707f5fc23db99ff9624abf79f4a0cb8bc5f88f14c7fc5c82226323fc",
+          "pageCount": 21,
+          "artifactId": "sante_mondiale_sante_france_fiche_hybride_v73_public"
+        },
+        "qcm": {
+          "path": "assets/c11-sante-mondiale/UE_C11_Sante_Mondiale_QCM_56_V4_Corriges.pdf",
+          "sha256": "4153a3b554fb7dc676fb745c26f8ab7c302493c51616b743b1af46a2ca6cac8e",
+          "pageCount": 21,
+          "artifactId": "sante_mondiale_sante_france_qcm_56_v4_public"
+        }
+      },
+      "qcmPublicAssetSha256": "4153a3b554fb7dc676fb745c26f8ab7c302493c51616b743b1af46a2ca6cac8e",
+      "officialRevision": {
+        "kind": "official_support_partial_with_missing_oral",
+        "sourceSlides": 101,
+        "teacherPrioritySlides": 67,
+        "transcriptAuthentified": false,
+        "archivePolicy": "preserve_all_legacy_resources",
+        "legacySheetIds": [
+          "sante_mondiale_sante_france_fiche_p01",
+          "sante_mondiale_sante_france_fiche_complete_infographiee_p01"
+        ],
+        "legacyBoardCount": 9,
+        "declaredMissingTeacherTopFives": true,
+        "publicationDate": "2026-11-01"
+      },
+      "pedagogicalNonRegression": {
+        "contract": "ifsi_pedagogical_non_regression_v149",
+        "sheetSha256": "a74f9df5707f5fc23db99ff9624abf79f4a0cb8bc5f88f14c7fc5c82226323fc",
+        "privateEvidenceSha256": "b42c985e27c4cbb698464a181eebd9a97c89024fe1c856c83f4d718131c8f30d",
+        "reviewedAt": "2026-11-01T15:25:00+01:00",
+        "sourceInventory": "reviewed",
+        "sourceCoverage": "limited",
+        "inheritanceReview": "compared",
+        "depthReview": "reviewed",
+        "differencesReview": "reviewed",
+        "decision": "scoped_provisional_review_recorded"
       }
     },
     {

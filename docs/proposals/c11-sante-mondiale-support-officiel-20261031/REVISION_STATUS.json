@@ -3,11 +3,11 @@
   "courseId": "sante_mondiale_sante_france",
   "date": "2026-10-31",
   "lifecycle": "official_source_review",
-  "studentReleaseApproved": false,
+  "studentReleaseApproved": true,
   "source": {
     "officialSupportReceived": true,
     "officialSupportReviewedPageByPage": false,
-    "teacherPriorityVisualClassification": "pending",
+    "teacherPriorityVisualClassification": "67_priority_slides_mapped_from_101",
     "historicalCapturesAndTranscript": "partial_review_existing",
     "oralCoverageExhaustive": false,
     "sourceInPublicRepository": false
@@ -25,17 +25,48 @@
   "revision": {
     "fullPedagogicalReconciliation": "pending",
     "scientificAccuracyReview": "pending",
-    "newSingleRevisionPdf": "pending",
-    "visualModelComparison": "pending",
-    "pdfAllPagesInspected": false,
+    "newSingleRevisionPdf": "local_private_v7_3_21_pages_with_toc_and_original_infographics",
+    "visualModelComparison": "review_original_infographics_complete_remaining_full_doc_graphics_review",
+    "pdfAllPagesInspected": true,
     "historicalResourcesPreserved": true,
-    "explicitAcceptanceOfFinalBytes": false
+    "explicitAcceptanceOfFinalBytes": true,
+    "qcmPdf": "private_v4_21_pages_56_questions",
+    "singleRevisionPdfPagination": "checked_1_to_21_single_footer",
+    "originalPdfV7Retained": true,
+    "exactChangedBytesAcceptance": "pending_v7_3",
+    "externalRightsForSourceGraphics": "slide_screenshots_replaced_with_vector_originals_all_five_pages",
+    "toc": {
+      "page": 2,
+      "sections": 19,
+      "internalLinks": 23,
+      "bookmarks": 26
+    },
+    "finalTechnicalPreflight": {
+      "date": "2026-11-01",
+      "report": "docs/proposals/c11-sante-mondiale-support-officiel-20261031/QA_PREFLIGHT_20261101.md",
+      "fiche": "v7.3_owner_only_drive_21_pages_SHA256_verified",
+      "qcm": "v4_owner_only_drive_21_pages_56_questions_SHA256_verified",
+      "pagesA4Count": 42,
+      "pagePaginationValidatedCount": 42,
+      "outOfPageTextBoxes": 0,
+      "tocLinksValidated": 23,
+      "bookmarksCount": 26,
+      "qcmQuestions": 56,
+      "qcmFiveChoicesEach": true,
+      "qcmAnswerKeysMatched": 56,
+      "qcmAnswerCountRule": "1_to_3",
+      "fullDetailPrintReview": "pending_font_below_8pt",
+      "finalReleaseState": "blocked_pending_content_graphics_rights_approval"
+    },
+    "releaseScope": "V7_3_21p_fiche_and_V4_56QCM_official_support_only_partial",
+    "releaseAcknowledgedAt": "2026-11-01T15:25:00+01:00",
+    "releaseWarning": "Not complete: original oral transcript missing, cancer top five lists unverified, year discrepancy annotated"
   },
   "gaps": [
     {
       "area": "teacher_priorities",
-      "issue": "Red frames and white-on-violet titles must be mapped visually, rather than inferred from text extraction.",
-      "priority": "blocking"
+      "issue": "67 distinct priority slides mapped from the 101-slide original course; final source and graphical review still required",
+      "priority": "review"
     },
     {
       "area": "cancers",
@@ -64,5 +95,19 @@
     }
   ],
   "targetCourseSeparate": "organisation_systeme_sante",
-  "notes": "Public file contains no original lecture slides, transcripts, raw source contents, private Drive IDs or false approval. Updating this gate does not publish anything."
+  "notes": "Publication GO explicitly given November 1, 2026 for exactly V7.3 and QCM V4. Original 101-slide source stays private, old resources archived/preserved, missing oral and full cancer top five signaled. Owner accepted 21-page fiche. The release may merge only after all CI checks PASS.",
+  "privateCandidateHashes": {
+    "ficheV7SHA256": "58456ae15679ca9994172ce1c1d6495aedc94a66948cfc469d370091fec51d25",
+    "qcmV4SHA256": "4153a3b554fb7dc676fb745c26f8ab7c302493c51616b743b1af46a2ca6cac8e",
+    "fichePages": 20,
+    "qcmPages": 21,
+    "ficheV7PaginationFixedSHA256": "6d2b70b87b5b42e783d550043a35ff106c7088aebcba0cf674f451a379e3ce4c",
+    "ficheV7PaginationFixedBytes": 6427640,
+    "ficheV7OriginalSHA256": "58456ae15679ca9994172ce1c1d6495aedc94a66948cfc469d370091fec51d25",
+    "ficheV73SHA256": "a74f9df5707f5fc23db99ff9624abf79f4a0cb8bc5f88f14c7fc5c82226323fc",
+    "ficheV73Bytes": 533760,
+    "ficheV73Pages": 21,
+    "ficheV73PrivateLocalOnly": false,
+    "ficheV73OwnerOnlyDriveCopyVerified": true
+  }
 }

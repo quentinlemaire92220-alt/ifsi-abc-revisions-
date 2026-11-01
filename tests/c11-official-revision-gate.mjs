@@ -48,6 +48,28 @@ if (!gate.studentReleaseApproved) {
  assert.equal(gate.revision.explicitAcceptanceOfFinalBytes, false);
  assert.equal(gate.revision.pdfAllPagesInspected, false);
 }
+if (gate.studentReleaseApproved) {
+ const delivery=json('docs/course-deliveries.json').courses.find(d=>d.courseId===c.id);
+ const sheets=[1,2,3].flatMap(n=>json('sheets-'+n+'.json')).filter(x=>x.courseId===c.id);
+ const bank=json('qextra-59.txt').filter(x=>x.courseId===c.id);
+ assert.equal(delivery?.publicationApproval?.authorization,'explicit_go_publication','Publication sans GO');
+ assert.equal(delivery?.publicationApproval?.status,'approved');
+ assert.equal(c.officialSupport,true,'Le support officiel reçu doit être reconnu');
+ assert.equal(c.sourceStatus,'provisional','Transcription absente : statut provisoire requis');
+ assert.equal(delivery.status,'partial','Cours lacunaire ne doit pas apparaître complet');
+ assert.equal(delivery.sourceAudit?.oralStatus,'unavailable','Transcription absente masquée');
+ assert.ok(delivery.blockers?.some(b=>b.reason==='oral_source_missing'));
+ assert.ok(delivery.blockers?.some(b=>b.reason==='unsupported_teacher_requested_content'));
+ assert.equal(delivery.publicArtifacts?.sheet?.sha256,'a74f9df5707f5fc23db99ff9624abf79f4a0cb8bc5f88f14c7fc5c82226323fc');
+ assert.equal(delivery.publicArtifacts?.qcm?.sha256,'4153a3b554fb7dc676fb745c26f8ab7c302493c51616b743b1af46a2ca6cac8e');
+ assert.equal(bank.length,56);assert.equal(bank.flatMap(q=>q.flashcards||[]).length,56);
+ assert.equal(c.flashcardTarget,56);assert.equal(c.audioCount,2);
+ assert.equal(sheets.filter(x=>x.sourceStatus!=='archived').length,1,'Plusieurs fiches actives');
+ assert.equal(sheets.filter(x=>x.sourceStatus==='archived').length,2,'Fiches historiques supprimées');
+ assert.equal(json('infographics.json').filter(x=>x.courseId===c.id&&x.sourceStatus==='archived').length,9,'Anciennes planches non archivées');
+ assert.equal(gate.revision.explicitAcceptanceOfFinalBytes,true);
+ assert.equal(gate.revision.pdfAllPagesInspected,true);
+}
 const m = JSON.stringify(gate);
 assert.ok(!m.includes('drive.google.com') &&
  !/transcriptDriveId|file_id|recording_url/i.test(m),
