@@ -1,5 +1,8 @@
 # UE C1.1 — Préparation de l'intégration V7 (non publiable)
 
+> **État actuel — 1er novembre 2026 :** version candidate **V7.3**, **21 pages**, déjà sauvegardée dans le Drive privé propriétaire. SHA-256 `a74f9df5707f5fc23db99ff9624abf79f4a0cb8bc5f88f14c7fc5c82226323fc`. QCM **V4**, 56 questions, 21 pages, SHA-256 `4153a3b554fb7dc676fb745c26f8ab7c302493c51616b743b1af46a2ca6cac8e`. Les versions V7 / V7.1 / V6 mentionnées plus bas sont historiques. **V7.3 n'est pas publiée**, et ses contrôles sont consignés dans `QA_PREFLIGHT_20261101.md`. Quelques polices de moins de 8 pt et les lacunes du cours bloquent la validation finale. PR à garder **en brouillon**.
+
+
 Date : 31 octobre 2026. Ce document de suivi ne contient **aucune donnée du cours, transcription, lien Drive privé ou PDF**.
 
 ## Livrables privés vérifiés
