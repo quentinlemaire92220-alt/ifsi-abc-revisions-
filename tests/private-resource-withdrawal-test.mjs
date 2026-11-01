@@ -133,6 +133,75 @@ function preserveApprovedDroitsConsolidation(oldCourse,nextCourse,prior,next){
   'Octets publics divergents');
 }
 
+function preserveApprovedC11OfficialPartial(oldCourse,nextCourse,oldDelivery,nextDelivery){
+ const id='sante_mondiale_sante_france';
+ assert.equal(oldCourse.id,id);
+ assert.equal(nextDelivery?.publicationApproval?.status,'approved');
+ assert.equal(nextDelivery.publicationApproval.authorization,'explicit_go_publication');
+ assert.equal(nextDelivery.publicationApproval.scope,'course_package');
+ assert.equal(nextDelivery.packFormat,'hybrid_v1');
+ assert.equal(nextDelivery.status,'partial');
+ assert.equal(nextDelivery.pedagogicalValidated,false);
+ assert.equal(nextDelivery.sourceAudit?.oralStatus,'unavailable');
+ assert.ok(nextDelivery.blockers?.some(b=>b.reason==='oral_source_missing'));
+ assert.ok(nextDelivery.blockers?.some(b=>b.reason==='unsupported_teacher_requested_content'));
+ assert.equal(nextCourse.officialSupport,true);
+ assert.equal(nextCourse.sourceStatus,'provisional');
+ assert.equal(nextCourse.provisional,true);
+ const fields=['sourceNote','officialSupport','sourceStatus','provisional','qcmPdfUrl','additionalDocuments'];
+ assert.deepEqual(without(nextCourse,fields),without(oldCourse,fields),
+  'C1.1 : identité, audios, QCM et flashcards historiques altérés');
+ const oldDocs=publicDocuments(oldCourse),newDocs=nextCourse.additionalDocuments||[];
+ assert.deepEqual(newDocs.slice(0,oldDocs.length),oldDocs,
+  'C1.1 : documents historiques retirés ou modifiés');
+ assert.equal(newDocs.length,oldDocs.length+2,
+  'C1.1 : deux PDF nouveaux uniquement');
+ for(const doc of newDocs.slice(oldDocs.length)){
+  assert.ok(visible(doc)&&!isScriptWorkItem(doc),'C1.1 : document privé ou non publiable');
+  assert.ok(verifyPublicArtifact(nextDelivery,doc.url),
+    'C1.1 : PDF non relié au lot et SHA approuvés');
+ }
+ assert.equal(nextCourse.qcmPdfUrl,
+  'https://quentinlemaire92220-alt.github.io/ifsi-abc-revisions/'+nextDelivery.publicArtifacts.qcm.path);
+ assert.equal(nextDelivery.publicArtifacts.sheet.sha256,'a74f9df5707f5fc23db99ff9624abf79f4a0cb8bc5f88f14c7fc5c82226323fc');
+ assert.equal(nextDelivery.publicArtifacts.qcm.sha256,'4153a3b554fb7dc676fb745c26f8ab7c302493c51616b743b1af46a2ca6cac8e');
+ assert.equal(nextDelivery.qcmCount,oldDelivery.qcmCount);
+ assert.equal(nextDelivery.flashcardCount,oldDelivery.flashcardCount);
+ assert.equal(nextDelivery.audioCount,oldDelivery.audioCount);
+ assert.deepEqual(nextDelivery.vocals,oldDelivery.vocals,'C1.1 : vocaux historiques modifiés');
+ assert.deepEqual(nextDelivery.qcmBanks,oldDelivery.qcmBanks,'C1.1 : banques QCM supprimées');
+ for(const [k,v] of Object.entries(oldDelivery.artifactSha256s||{}))
+  assert.equal(nextDelivery.artifactSha256s?.[k],v,'C1.1 : ancien PDF supprimé ou modifié');
+ const oldBank=before('qextra-59.txt'),newBank=disk('qextra-59.txt');
+ assert.equal(newBank.length,oldBank.length,'C1.1 : QCM historiques perdus');
+ const expectedRewordings=new Set([
+  'c11_s1_q028','c11_s1_q030','c11_s1_q034','c11_s1_q036',
+  'c11_s1_q045','c11_s1_q050','c11_s1_q055'
+ ]);
+ for(let i=0;i<oldBank.length;i++){
+  const oldQ=oldBank[i],newQ=newBank[i];
+  assert.equal(newQ.id,oldQ.id,'C1.1 : question réordonnée');
+  if(expectedRewordings.has(oldQ.id)){
+    assert.deepEqual(without(newQ,['question']),without(oldQ,['question']),
+      'C1.1 : réponses, explications ou cartes modifiées');
+    expectedRewordings.delete(oldQ.id);
+  }else assert.deepEqual(newQ,oldQ,'C1.1 : QCM non concerné altéré');
+ }
+ assert.equal(expectedRewordings.size,0,'C1.1 : reformulations attendues non trouvées');
+ const previousSheets=[1,2,3].flatMap(n=>before('sheets-'+n+'.json')).filter(s=>s.courseId===id);
+ const nowSheets=[1,2,3].flatMap(n=>disk('sheets-'+n+'.json')).filter(s=>s.courseId===id);
+ assert.equal(previousSheets.length,2);
+ assert.equal(nowSheets.length,3);
+ for(const oldS of previousSheets)
+  assert.deepEqual(nowSheets.find(s=>s.resourceId===oldS.resourceId),
+   {...oldS,sourceStatus:'archived'},'C1.1 : fiche historique altérée');
+ assert.equal(nowSheets.filter(s=>s.sourceStatus!=='archived').length,1);
+ const prevBoards=before('infographics.json').filter(x=>x.courseId===id);
+ const newBoards=disk('infographics.json').filter(x=>x.courseId===id);
+ assert.equal(prevBoards.length,9);
+ assert.deepEqual(newBoards,prevBoards.map(x=>({...x,sourceStatus:'archived'})),
+  'C1.1 : planches historiques altérées autrement que par archivage');
+}
 function preserveApprovedAddition(oldCourse,nextCourse,oldDelivery,nextDelivery){
  const id=oldCourse.id,approval=nextDelivery.publicationApproval;
  assert.equal(approval?.status,'approved',id+': complément sans approbation');
@@ -377,6 +446,7 @@ for(const course of registryForWithdrawal)if(approvedUpdates.has(course.id)){
     assert.deepEqual(historical.delivery,previousDelivery,'Livraison historique de psychologie altérée');
     assert.deepEqual(historical.course,oldCourse,'Identité historique de psychologie altérée');
    }
+   else if(previousDelivery && course.id==='sante_mondiale_sante_france')preserveApprovedC11OfficialPartial(oldCourse,course,previousDelivery,nextDelivery);
    else if(previousDelivery && course.id==='droits_patients')preserveApprovedDroitsConsolidation(oldCourse,course,previousDelivery,nextDelivery);
    else if(previousDelivery)preserveApprovedAddition(oldCourse,course,previousDelivery,nextDelivery);
   else preserveApprovedFirstManifestAddition(oldCourse,course,nextDelivery);
