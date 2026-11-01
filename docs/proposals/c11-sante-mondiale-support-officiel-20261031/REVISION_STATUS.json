@@ -75,7 +75,7 @@
     }
   ],
   "targetCourseSeparate": "organisation_systeme_sante",
-  "notes": "V7.3 generated locally from the official lecture only, no web. Its original vector graphics replace five source-screenshot pages without inventing regional numbers or cancer rankings. No public publication or student catalog changes. New bytes still need owner approval and a final complete human graphic review.",
+  "notes": "V7.3 stored in owner-only Drive workspace; 21 pages, clickable TOC, five vector-only illustrative pages and 16 pixel-identical unchanged pages. SHA-256 and file size verified; no Drive IDs/URLs or private PDF bytes in public repository. No external internet search. Human final acceptance and publication remain gated.",
   "privateCandidateHashes": {
     "ficheV7SHA256": "58456ae15679ca9994172ce1c1d6495aedc94a66948cfc469d370091fec51d25",
     "qcmV4SHA256": "4153a3b554fb7dc676fb745c26f8ab7c302493c51616b743b1af46a2ca6cac8e",
@@ -87,6 +87,7 @@
     "ficheV73SHA256": "a74f9df5707f5fc23db99ff9624abf79f4a0cb8bc5f88f14c7fc5c82226323fc",
     "ficheV73Bytes": 533760,
     "ficheV73Pages": 21,
-    "ficheV73PrivateLocalOnly": true
+    "ficheV73PrivateLocalOnly": false,
+    "ficheV73OwnerOnlyDriveCopyVerified": true
   }
 }
