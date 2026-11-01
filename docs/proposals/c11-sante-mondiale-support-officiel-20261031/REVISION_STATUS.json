@@ -30,7 +30,11 @@
     "pdfAllPagesInspected": false,
     "historicalResourcesPreserved": true,
     "explicitAcceptanceOfFinalBytes": false,
-    "qcmPdf": "private_v4_21_pages_56_questions"
+    "qcmPdf": "private_v4_21_pages_56_questions",
+    "singleRevisionPdfPagination": "repaired_1_to_20_single_footer",
+    "originalPdfV7Retained": true,
+    "exactChangedBytesAcceptance": "pending_after_footer_repair",
+    "externalRightsForSourceGraphics": "unverified_public_distribution_blocked"
   },
   "gaps": [
     {
@@ -65,11 +69,14 @@
     }
   ],
   "targetCourseSeparate": "organisation_systeme_sante",
-  "notes": "Private candidates exist. Do not publish URLs, PDF source slides, private file IDs, or set approval flags. No public source or new website content has been consulted. Source priorities mapped; missing oral and two cancer rankings remain blockers.",
+  "notes": "User approved continuing the pedagogical preparation, not post-repair exact PDF bytes nor public redistribution rights. The 20-page PDF has exactly one footer with correct pagination; all 20 pages rendered above footer pixel-identical to prior V7. Drive copy is owner-only; no Drive URLs/IDs in repo. No external internet research.",
   "privateCandidateHashes": {
     "ficheV7SHA256": "58456ae15679ca9994172ce1c1d6495aedc94a66948cfc469d370091fec51d25",
     "qcmV4SHA256": "4153a3b554fb7dc676fb745c26f8ab7c302493c51616b743b1af46a2ca6cac8e",
     "fichePages": 20,
-    "qcmPages": 21
+    "qcmPages": 21,
+    "ficheV7PaginationFixedSHA256": "6d2b70b87b5b42e783d550043a35ff106c7088aebcba0cf674f451a379e3ce4c",
+    "ficheV7PaginationFixedBytes": 6427640,
+    "ficheV7OriginalSHA256": "58456ae15679ca9994172ce1c1d6495aedc94a66948cfc469d370091fec51d25"
   }
 }
