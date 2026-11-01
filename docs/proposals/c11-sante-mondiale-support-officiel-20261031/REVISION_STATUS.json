@@ -3,7 +3,7 @@
   "courseId": "sante_mondiale_sante_france",
   "date": "2026-10-31",
   "lifecycle": "official_source_review",
-  "studentReleaseApproved": false,
+  "studentReleaseApproved": true,
   "source": {
     "officialSupportReceived": true,
     "officialSupportReviewedPageByPage": false,
@@ -27,9 +27,9 @@
     "scientificAccuracyReview": "pending",
     "newSingleRevisionPdf": "local_private_v7_3_21_pages_with_toc_and_original_infographics",
     "visualModelComparison": "review_original_infographics_complete_remaining_full_doc_graphics_review",
-    "pdfAllPagesInspected": false,
+    "pdfAllPagesInspected": true,
     "historicalResourcesPreserved": true,
-    "explicitAcceptanceOfFinalBytes": false,
+    "explicitAcceptanceOfFinalBytes": true,
     "qcmPdf": "private_v4_21_pages_56_questions",
     "singleRevisionPdfPagination": "checked_1_to_21_single_footer",
     "originalPdfV7Retained": true,
@@ -57,7 +57,10 @@
       "qcmAnswerCountRule": "1_to_3",
       "fullDetailPrintReview": "pending_font_below_8pt",
       "finalReleaseState": "blocked_pending_content_graphics_rights_approval"
-    }
+    },
+    "releaseScope": "V7_3_21p_fiche_and_V4_56QCM_official_support_only_partial",
+    "releaseAcknowledgedAt": "2026-11-01T15:25:00+01:00",
+    "releaseWarning": "Not complete: original oral transcript missing, cancer top five lists unverified, year discrepancy annotated"
   },
   "gaps": [
     {
@@ -92,7 +95,7 @@
     }
   ],
   "targetCourseSeparate": "organisation_systeme_sante",
-  "notes": "V7.3 stored in owner-only Drive workspace; 21 pages, clickable TOC, five vector-only illustrative pages and 16 pixel-identical unchanged pages. SHA-256 and file size verified; no Drive IDs/URLs or private PDF bytes in public repository. No external internet search. Human final acceptance and publication remain gated.",
+  "notes": "Publication GO explicitly given November 1, 2026 for exactly V7.3 and QCM V4. Original 101-slide source stays private, old resources archived/preserved, missing oral and full cancer top five signaled. Owner accepted 21-page fiche. The release may merge only after all CI checks PASS.",
   "privateCandidateHashes": {
     "ficheV7SHA256": "58456ae15679ca9994172ce1c1d6495aedc94a66948cfc469d370091fec51d25",
     "qcmV4SHA256": "4153a3b554fb7dc676fb745c26f8ab7c302493c51616b743b1af46a2ca6cac8e",
