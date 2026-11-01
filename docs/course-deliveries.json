@@ -1984,7 +1984,7 @@
         "coveredEssential": 18,
         "prioritySourceReference": "Support officiel 101 diapositives, 67 diapositives prioritaires repérées; classement des 5 cancers non soutenu et signalé hors matrice.",
         "medicalReview": "approved",
-        "readabilityReview": "approved_with_small_header_and_footnote_caution"
+        "readabilityReview": "approved"
       },
       "hybridVisualReview": {
         "status": "approved",
