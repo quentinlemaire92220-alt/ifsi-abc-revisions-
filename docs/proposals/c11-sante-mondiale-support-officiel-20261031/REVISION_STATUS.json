@@ -40,6 +40,23 @@
       "sections": 19,
       "internalLinks": 23,
       "bookmarks": 26
+    },
+    "finalTechnicalPreflight": {
+      "date": "2026-11-01",
+      "report": "docs/proposals/c11-sante-mondiale-support-officiel-20261031/QA_PREFLIGHT_20261101.md",
+      "fiche": "v7.3_owner_only_drive_21_pages_SHA256_verified",
+      "qcm": "v4_owner_only_drive_21_pages_56_questions_SHA256_verified",
+      "pagesA4Count": 42,
+      "pagePaginationValidatedCount": 42,
+      "outOfPageTextBoxes": 0,
+      "tocLinksValidated": 23,
+      "bookmarksCount": 26,
+      "qcmQuestions": 56,
+      "qcmFiveChoicesEach": true,
+      "qcmAnswerKeysMatched": 56,
+      "qcmAnswerCountRule": "1_to_3",
+      "fullDetailPrintReview": "pending_font_below_8pt",
+      "finalReleaseState": "blocked_pending_content_graphics_rights_approval"
     }
   },
   "gaps": [
