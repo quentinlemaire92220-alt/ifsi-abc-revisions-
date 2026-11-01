@@ -340,8 +340,8 @@ def validate_c11_qcm(doc, rows):
     pieces=raw.split('Corrigés argumentés')
     assert len(pieces)==2,'C1.1 : manque la séparation questions / corrigés'
     question_text, correction_text=pieces
-    qpat=r'Question\\s+(\\d{2})\\s*·\\s*(facile|intermédiaire|difficile)\\s*·\\s*([123])\\s+bonnes? réponses?'
-    apat=r'Q(\\d{2})\\s*·\\s*([123])\\s+réponses?\\s*:\\s*([A-E, ]+)\\s*—'
+    qpat=r'Question\s+(\d{2})\s*·\s*(facile|intermédiaire|difficile)\s*·\s*([123])\s+bonnes? réponses?'
+    apat=r'Q(\d{2})\s*·\s*([123])\s+réponses?\s*:\s*([A-E, ]+)\s*—'
     qs=list(re.finditer(qpat, question_text, re.I))
     ans=list(re.finditer(apat, correction_text, re.I))
     assert len(qs)==len(ans)==56,'C1.1 : question ou corrigé perdu / doublon'
@@ -356,7 +356,7 @@ def validate_c11_qcm(doc, rows):
         assert len(row['choices'])==5 and 1<=len(row['answers'])<=3,row['id']+': nombre de choix invalide'
         assert int(q[3])==int(a[2])==len(row['answers']),row['id']+': nombre de réponses divergent'
         assert norm(row['question']) in norm(question_block),row['id']+': énoncé divergent du PDF'
-        choices=re.findall(r'(?:□\\s*)?([A-E])\\.\\s+([^\\n]+)',question_block)
+        choices=re.findall(r'(?:□\s*)?([A-E])\.\s+([^\n]+)',question_block)
         assert [letter for letter,_ in choices]==list('ABCDE'),row['id']+': cinq propositions dans le bon ordre absentes'
         for i,(_,value) in enumerate(choices):
             assert norm(value)==norm(row['choices'][i]),row['id']+': proposition différente '+chr(65+i)
