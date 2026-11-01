@@ -25,16 +25,22 @@
   "revision": {
     "fullPedagogicalReconciliation": "pending",
     "scientificAccuracyReview": "pending",
-    "newSingleRevisionPdf": "private_v7_20_pages_official_course_visuals",
-    "visualModelComparison": "in_progress_remaining_small_labels_and_whitespace",
+    "newSingleRevisionPdf": "local_private_v7_3_21_pages_with_toc_and_original_infographics",
+    "visualModelComparison": "review_original_infographics_complete_remaining_full_doc_graphics_review",
     "pdfAllPagesInspected": false,
     "historicalResourcesPreserved": true,
     "explicitAcceptanceOfFinalBytes": false,
     "qcmPdf": "private_v4_21_pages_56_questions",
-    "singleRevisionPdfPagination": "repaired_1_to_20_single_footer",
+    "singleRevisionPdfPagination": "checked_1_to_21_single_footer",
     "originalPdfV7Retained": true,
-    "exactChangedBytesAcceptance": "pending_after_footer_repair",
-    "externalRightsForSourceGraphics": "unverified_public_distribution_blocked"
+    "exactChangedBytesAcceptance": "pending_v7_3",
+    "externalRightsForSourceGraphics": "slide_screenshots_replaced_with_vector_originals_all_five_pages",
+    "toc": {
+      "page": 2,
+      "sections": 19,
+      "internalLinks": 23,
+      "bookmarks": 26
+    }
   },
   "gaps": [
     {
@@ -69,7 +75,7 @@
     }
   ],
   "targetCourseSeparate": "organisation_systeme_sante",
-  "notes": "User approved continuing the pedagogical preparation, not post-repair exact PDF bytes nor public redistribution rights. The 20-page PDF has exactly one footer with correct pagination; all 20 pages rendered above footer pixel-identical to prior V7. Drive copy is owner-only; no Drive URLs/IDs in repo. No external internet research.",
+  "notes": "V7.3 generated locally from the official lecture only, no web. Its original vector graphics replace five source-screenshot pages without inventing regional numbers or cancer rankings. No public publication or student catalog changes. New bytes still need owner approval and a final complete human graphic review.",
   "privateCandidateHashes": {
     "ficheV7SHA256": "58456ae15679ca9994172ce1c1d6495aedc94a66948cfc469d370091fec51d25",
     "qcmV4SHA256": "4153a3b554fb7dc676fb745c26f8ab7c302493c51616b743b1af46a2ca6cac8e",
@@ -77,6 +83,10 @@
     "qcmPages": 21,
     "ficheV7PaginationFixedSHA256": "6d2b70b87b5b42e783d550043a35ff106c7088aebcba0cf674f451a379e3ce4c",
     "ficheV7PaginationFixedBytes": 6427640,
-    "ficheV7OriginalSHA256": "58456ae15679ca9994172ce1c1d6495aedc94a66948cfc469d370091fec51d25"
+    "ficheV7OriginalSHA256": "58456ae15679ca9994172ce1c1d6495aedc94a66948cfc469d370091fec51d25",
+    "ficheV73SHA256": "a74f9df5707f5fc23db99ff9624abf79f4a0cb8bc5f88f14c7fc5c82226323fc",
+    "ficheV73Bytes": 533760,
+    "ficheV73Pages": 21,
+    "ficheV73PrivateLocalOnly": true
   }
 }
