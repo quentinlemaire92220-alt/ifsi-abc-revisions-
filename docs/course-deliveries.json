@@ -2068,7 +2068,7 @@
         "authorization": "explicit_go_publication",
         "scope": "course_package",
         "approvedAt": "2026-11-01T15:25:00+01:00",
-        "bundleSha256": "224fe67706d0f4daf440ea9736bc88914324207f5cb3aed588a62367e7a564bc"
+        "bundleSha256": "d025420fddcb963e67daa6d2a6d4315f91f20ba1b7afed6559d0f6020c4a624d"
       },
       "provisional": true,
       "pedagogicalValidated": false,
