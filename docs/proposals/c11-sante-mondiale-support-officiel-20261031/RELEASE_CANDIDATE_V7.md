@@ -28,3 +28,13 @@ Date : 31 octobre 2026. Ce document de suivi ne contient **aucune donnée du cou
 - `studentReleaseApproved=false` et `explicitAcceptanceOfFinalBytes=false`.
 - Ne pas modifier `course-registry-v741.json`, `sheets-3.json`, les URL publiques ni les permissions Drive avant satisfaction de tous les contrôles.
 - Cette PR peut servir de base de travail, mais **reste en brouillon et ne doit pas être fusionnée** comme une publication prête.
+
+
+## Contrôle de pagination après relecture (1er novembre 2026)
+
+- La V7 d'origine contenait deux pieds de page par diapositive reprise : `n/16` et `n/20`. Il s'agissait d'un défaut **réel**, identifié dans l'extraction PDF.
+- Fiche corrigée conservée dans le Drive **privé (permission owner seulement)** : 20 pages A4, taille **6 427 640 octets**, SHA-256 `6d2b70b87b5b42e783d550043a35ff106c7088aebcba0cf674f451a379e3ce4c`.
+- Contrôle automatisé sur les **20 pages** : un seul pied de page, numéro `1/20` à `20/20`, aucune ancienne pagination `/16`. Les pixels de toute la zone au-dessus du pied de page sont identiques à la V7 source et le texte est préservé.
+- Les graphiques copiés du support officiel n'ont pas été modifiés : l'autorisation de les rediffuser publiquement reste **à établir**. Ne pas présumer d'un droit de publication à partir de la remise du support de cours.
+- L'accord « je valide, on continue » autorise la poursuite du travail ; il ne vaut pas preuve d'acceptation des **octets post-correction** ni des droits de diffusion.
+- Le dossier respecte le périmètre limité aux supports et ressources remis par l'utilisateur, sans recherche externe. **Aucun changement des URL, du catalogue, de la banque active, du versionnage ou du build.**
