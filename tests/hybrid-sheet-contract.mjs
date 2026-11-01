@@ -30,7 +30,7 @@ export function validateHybridDelivery(courseId, delivery, sheets, {requirePubli
   assert.equal(delivery.artifactSha256s?.[a.artifactId],a.sha256,courseId+': identité binaire non vérifiée');
   assert.equal(sheet.driveId,undefined,courseId+': ne pas exposer le Drive privé dans le catalogue');
  }else{
-  assert.ok(typeof id==='string'&&id.length>8,courseId+': identifiant Drive absent');
+  assert.ok(typeof id==='string'&&/^[a-zA-Z0-9_-]+$/.test(id),courseId+': identifiant Drive absent');
   assert.ok(String(sheet.url||'').startsWith('https://drive.google.com/file/d/'),courseId+': lien Drive réel obligatoire');
  }
  assert.equal(delivery.schematics,'embedded_only',courseId+': les figures restent intégrées à la fiche');
