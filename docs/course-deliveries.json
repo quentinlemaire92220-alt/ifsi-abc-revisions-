@@ -2045,6 +2045,18 @@
         "legacyBoardCount": 9,
         "declaredMissingTeacherTopFives": true,
         "publicationDate": "2026-11-01"
+      },
+      "pedagogicalNonRegression": {
+        "contract": "ifsi_pedagogical_non_regression_v149",
+        "sheetSha256": "a74f9df5707f5fc23db99ff9624abf79f4a0cb8bc5f88f14c7fc5c82226323fc",
+        "privateEvidenceSha256": "b42c985e27c4cbb698464a181eebd9a97c89024fe1c856c83f4d718131c8f30d",
+        "reviewedAt": "2026-11-01T15:25:00+01:00",
+        "sourceInventory": "reviewed",
+        "sourceCoverage": "limited",
+        "inheritanceReview": "compared",
+        "depthReview": "reviewed",
+        "differencesReview": "reviewed",
+        "decision": "scoped_provisional_review_recorded"
       }
     },
     {
