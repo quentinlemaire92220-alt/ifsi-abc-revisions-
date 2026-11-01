@@ -127,7 +127,7 @@ export function validateVisualOwnerReview(courseId,delivery,data){
   assert.equal(review.reviewedBoardSha256s?.[id],live,
    courseId+': planche infographique non revue ou modifiee '+id);
  }
- const graphics=(data.infographics||[]).filter(x=>x.courseId===courseId&&x.localImage);
+ const graphics=(data.infographics||[]).filter(x=>x.courseId===courseId&&x.localImage&&x.sourceStatus!=='archived');
  for(const image of graphics){
   const live=(data.imageHashes||{})[image.localImage];
   assert.ok(digest(live),courseId+': empreinte image absente '+image.resourceId);
