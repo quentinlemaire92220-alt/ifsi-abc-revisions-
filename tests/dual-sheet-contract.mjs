@@ -8,6 +8,15 @@ const sha=v=>typeof v==='string'&&/^[a-f0-9]{64}$/i.test(v);
 const driveId=sheet=>sheet?.driveId||String(sheet?.url||'').match(/\/file\/d\/([a-zA-Z0-9_-]+)/)?.[1];
 
 export function validateSheetSource(courseId,delivery,sheet){
+ if(delivery.deliveryMode==='existing_course_revision'&&delivery.sourceBasis?.kind==='official_support_only'&&delivery.sourceBasis?.nativeSupportAvailable===true){
+  assert.equal(delivery.status,'partial',courseId+': sans transcription, statut partiel obligatoire');
+  assert.equal(delivery.sourceAudit?.officialChecked,true,courseId+': support officiel non controle');
+  assert.equal(delivery.sourceAudit?.oralStatus,'unavailable',courseId+': absence de verbatim non signalee');
+  assert.ok(delivery.blockers?.some(x=>x.reason==='oral_source_missing'),courseId+': transcription absente non declaree');
+  assert.equal(sheet.officialSupport,true,courseId+': support officiel non reconnu');
+  assert.equal(sheet.provisional,true,courseId+': support partiel doit etre signale');
+  return;
+ }
  if(delivery.deliveryMode==='existing_course_revision'&&delivery.sourceBasis?.nativeSupportAvailable===true){
   assert.equal(delivery.sourceBasis.kind,'official_support_and_transcriptions',courseId+': rapprochement officiel absent');
   assert.equal(delivery.sourceBasis.reconciled,true,courseId+': sources non rapprochées');
