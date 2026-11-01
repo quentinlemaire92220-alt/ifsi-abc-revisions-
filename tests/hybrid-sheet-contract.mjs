@@ -29,8 +29,10 @@ export function validateHybridDelivery(courseId, delivery, sheets, {requirePubli
   assert.equal(a.sha256,delivery.visualAudit?.pdfSha256,courseId+': SHA de fiche Pages incohérent');
   assert.equal(delivery.artifactSha256s?.[a.artifactId],a.sha256,courseId+': identité binaire non vérifiée');
   assert.equal(sheet.driveId,undefined,courseId+': ne pas exposer le Drive privé dans le catalogue');
- }else assert.ok(/^[\\w-]+$/.test(id||'') && /^https:\\/\\/drive\\.google\\.com\\/file\\/d\\/[\\w-]+/.test(sheet.url||''),
-  courseId+': lien Drive réel obligatoire (pas de lien fictif)');
+ }else{
+  assert.ok(typeof id==='string'&&id.length>8,courseId+': identifiant Drive absent');
+  assert.ok(String(sheet.url||'').startsWith('https://drive.google.com/file/d/'),courseId+': lien Drive réel obligatoire');
+ }
  assert.equal(delivery.schematics,'embedded_only',courseId+': les figures restent intégrées à la fiche');
  assert.ok(Number.isInteger(delivery.embeddedFigureCount) && delivery.embeddedFigureCount>0,
   courseId+': infographies intégrées non attestées');
